@@ -5,12 +5,16 @@ const {filter} = arrayFunctionsLibrary;
 const {isEven,hasVowels} = arraysLibrary;
 
 describe('Filter',function(){
-  it('should filter the input array with numbers and the providing function',function(){
+  it('should filter the empty array with the provided function',function(){
     assert.deepEqual(filter(isEven,[]),[]);
+  });
+
+  it('should filter the input array with only one element and the provided function',function(){
     assert.deepEqual(filter(isEven,[0]),[0]);
+  });
+
+  it('should filter the input array with more than one elements and the provided function',function(){
     assert.deepEqual(filter(isEven,[0,1]),[0]);
-    assert.deepEqual(filter(isEven,[0,2]),[0,2]);
-    assert.deepEqual(filter(isEven,[1,3]),[]);
   });
 
   it('should filter the input array with string and the providing function',function(){
