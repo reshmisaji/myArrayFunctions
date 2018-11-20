@@ -10,5 +10,10 @@ const hasVowels = function(string){
   return returnValue;
 }
 
+const square = function(number){
+  return number*number;
+}
+
 exports.isEven = isEven;
 exports.hasVowels = hasVowels;
+exports.square = square;

@@ -1,8 +1,8 @@
 const assert = require('assert');
 const arraysLibrary = require('../src/arraysLibrary.js');
 const arrayFunctionsLibrary = require('../src/arrayFunctionsLibrary.js');
-const {filter} = arrayFunctionsLibrary;
-const {isEven,hasVowels} = arraysLibrary;
+const {filter,map} = arrayFunctionsLibrary;
+const {isEven,hasVowels,square} = arraysLibrary;
 
 describe('Filter',function(){
   it('should filter the empty array with the provided function',function(){
@@ -27,5 +27,17 @@ describe('Filter',function(){
 
   it('should filter the array with more than one string and the provided function',function(){
    assert.deepEqual(filter(hasVowels,["b","a"]),["a"]);  
+  });
+});
+
+describe('Map',function(){
+  it('should map empty array with the provided function',function(){
+    assert.deepEqual(map(square,[]),[]);
+  });
+  it('should map array with only one element and the provided function',function(){
+    assert.deepEqual(map(square,[1]),[1]);
+  });
+  it('should map array with more than one element and the provided function',function(){
+    assert.deepEqual(map(square,[1,2]),[1,4]);
   });
 });
