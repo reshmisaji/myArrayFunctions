@@ -2,10 +2,10 @@
 const filter = function(functionReference,array){
   let filterResult = [[],[]];
     
-  for(value of array){
-   filterResult[functionReference(value)].push(value);
+  for(let index = 0;index < array.length; index ++){
+   filterResult[functionReference(array[index])].push(array[index]);
   }
-  return filterResult[1];
+  return filterResult[0];
 }
 
 exports.filter = filter;
