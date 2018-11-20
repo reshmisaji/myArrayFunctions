@@ -17,12 +17,15 @@ describe('Filter',function(){
     assert.deepEqual(filter(isEven,[0,1]),[0]);
   });
 
-  it('should filter the input array with string and the providing function',function(){
+  it('should filter the empty array and the providing function',function(){
    assert.deepEqual(filter(hasVowels,[]),[]);  
+  });
+
+  it('should filter the array with only one string and the provided function',function(){
    assert.deepEqual(filter(hasVowels,["a"]),["a"]);  
-   assert.deepEqual(filter(hasVowels,["b"]),[]);  
+  });
+
+  it('should filter the array with more than one string and the provided function',function(){
    assert.deepEqual(filter(hasVowels,["b","a"]),["a"]);  
-   assert.deepEqual(filter(hasVowels,["b","c"]),[]);  
-   assert.deepEqual(filter(hasVowels,["a","e"]),["a","e"]);  
   });
 });
