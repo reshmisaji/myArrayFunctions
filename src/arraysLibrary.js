@@ -14,6 +14,11 @@ const square = function(number){
   return number*number;
 }
 
+const addCharacter = function(string){
+  return string += "*";
+}
+
 exports.isEven = isEven;
 exports.hasVowels = hasVowels;
 exports.square = square;
+exports.addCharacter = addCharacter;
