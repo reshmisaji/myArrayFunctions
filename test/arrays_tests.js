@@ -4,39 +4,39 @@ const assert = require('assert');
 const arraysLibrary = require('../src/arraysLibrary.js');
 const arrayFunctionsLibrary = require('../src/arrayFunctionsLibrary.js');
 const {filter,map,reduce} = arrayFunctionsLibrary;
-const {isEven,hasVowels,square,addCharacter,sum,concat} = arraysLibrary;
+const {truthyFunction,falsyFunction,square,addCharacter,sum,concat} = arraysLibrary;
 
 /*............tests for filter.............*/
 
 describe('Filter',function(){
   describe('Empty array',function(){
     it('should return an empty array when given an empty array',function(){
-      assert.deepEqual(filter(isEven,[]),[]);
+      assert.deepEqual(filter(truthyFunction,[]),[]);
     });
   });
 
   describe('Array with one element',function(){
     it('should return an array with one element if the predicate returns truthy',function(){ 
-      assert.deepEqual(filter(isEven,[0]),[0]);
-      assert.deepEqual(filter(hasVowels,["a"]),["a"]);
+      assert.deepEqual(filter(truthyFunction,[0]),[0]);
+      assert.deepEqual(filter(truthyFunction,["a"]),["a"]);
     });
 
     it('should return an empty array if the predicate returns falsy',function(){
-      assert.deepEqual(filter(isEven,[1]),[]);
-      assert.deepEqual(filter(hasVowels,["b"]),[]); 
+      assert.deepEqual(filter(falsyFunction,[1]),[]);
+      assert.deepEqual(filter(falsyFunction,["b"]),[]); 
     });
   });
 
   describe('Array with more than one element',function(){
     it('should return an array with the elements for which the predicate returns truthy',function(){
-      assert.deepEqual(filter(isEven,[0,1]),[0]);
-      assert.deepEqual(filter(hasVowels,["b","a"]),["a"]);
+      assert.deepEqual(filter(truthyFunction,[1,2]),[1,2]);
+      assert.deepEqual(filter(truthyFunction,["a","b"]),["a","b"]);
 
     });
 
     it('should return an empty array when the predicate returns falsy for all',function(){
-      assert.deepEqual(filter(isEven,[1,3]),[]);
-      assert.deepEqual(filter(hasVowels,["c","b"]),[]);        
+      assert.deepEqual(filter(falsyFunction,[1,3]),[]);
+      assert.deepEqual(filter(falsyFunction,["c","b"]),[]);        
     });
   });
 });

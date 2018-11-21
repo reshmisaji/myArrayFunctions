@@ -5,7 +5,7 @@ const filter = function(functionReference,array){
   for(let index = 0;index < array.length; index ++){
     filterResult[functionReference(array[index])].push(array[index]);
   }
-  return filterResult[0];
+  return filterResult[1];
 }
 
 /*...........map.................*/

@@ -1,13 +1,10 @@
 /*................arrays Library..................*/
-const isEven = function(number){
-  return number % 2;
+const truthyFunction = function(number){
+  return 1;
 }
 
-const hasVowels = function(string){
-  let result = string.match(/["a","e","i","o","u"]/g)
-  let returnValue = result == null? 1 : 0;
-
-  return returnValue;
+const falsyFunction = function(string){
+  return 0;
 }
 
 const square = function(number){
@@ -26,8 +23,8 @@ const concat = function(currentArray,previousArray){
   return previousArray.concat(currentArray);
 }
 
-exports.isEven = isEven;
-exports.hasVowels = hasVowels;
+exports.truthyFunction = truthyFunction;
+exports.falsyFunction = falsyFunction;
 exports.square = square;
 exports.addCharacter = addCharacter;
 exports.sum = sum;
