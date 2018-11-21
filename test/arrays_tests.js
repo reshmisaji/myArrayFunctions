@@ -9,10 +9,13 @@ const {isEven,hasVowels,square,addCharacter,sum,concat} = arraysLibrary;
 /*............tests for filter.............*/
 
 describe('Filter',function(){
+  describe('Empty array',function(){
     it('should return an empty array when it filters an empty array',function(){
       assert.deepEqual(filter(isEven,[]),[]);
     });
+  });
 
+  describe('Array with one element',function(){
     it('should return an array with one element if the predicate returns truthy',function(){ 
       assert.deepEqual(filter(isEven,[0]),[0]);
       assert.deepEqual(filter(hasVowels,["a"]),["a"]);
@@ -22,7 +25,9 @@ describe('Filter',function(){
       assert.deepEqual(filter(isEven,[1]),[]);
       assert.deepEqual(filter(hasVowels,["b"]),[]); 
     });
+  });
 
+  describe('Array with more than one element',function(){
     it('should return an array with the elements for which the predicate returns truthy',function(){
       assert.deepEqual(filter(isEven,[0,1]),[0]);
       assert.deepEqual(filter(hasVowels,["b","a"]),["a"]);
@@ -33,7 +38,7 @@ describe('Filter',function(){
       assert.deepEqual(filter(isEven,[1,3]),[]);
       assert.deepEqual(filter(hasVowels,["c","b"]),[]);        
     });
-
+  });
 });
 
 /*..........tests for map................*/
