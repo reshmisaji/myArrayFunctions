@@ -9,29 +9,26 @@ const {isEven,hasVowels,square,addCharacter,sum,concat} = arraysLibrary;
 /*............tests for filter.............*/
 
 describe('Filter',function(){
-  describe('numbers',function(){
-    it('should filter the empty array with the provided function',function(){
+    it('should return an empty array when it filters an empty array',function(){
       assert.deepEqual(filter(isEven,[]),[]);
     });
 
-    it('should filter the input array with only one element and the provided function',function(){
+    it('should return an array with one element if the predicate returns truthy',function(){ 
       assert.deepEqual(filter(isEven,[0]),[0]);
     });
 
-    it('should filter the input array with more than one elements and the provided function',function(){
+    it('should return an empty array if the predicate returns falsy',function(){
+      assert.deepEqual(filter(isEven,[1]),[]);
+    });
+
+    it('should return an array with the elements for which the predicate returns truthy',function(){
       assert.deepEqual(filter(isEven,[0,1]),[0]);
     });
-  });
 
-  describe('string',function(){
-    it('should filter the array with only one string and the provided function',function(){
-      assert.deepEqual(filter(hasVowels,["a"]),["a"]);  
+    it('should return an empty array when the predicate returns falsy for all',function(){
+      assert.deepEqual(filter(isEven,[1,3]),[]);
     });
 
-    it('should filter the array with more than one string and the provided function',function(){
-      assert.deepEqual(filter(hasVowels,["b","a"]),["a"]);  
-    });
-  });
 });
 
 /*..........tests for map................*/
