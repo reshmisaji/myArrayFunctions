@@ -10,7 +10,7 @@ const {isEven,hasVowels,square,addCharacter,sum,concat} = arraysLibrary;
 
 describe('Filter',function(){
   describe('Empty array',function(){
-    it('should return an empty array when it filters an empty array',function(){
+    it('should return an empty array when given an empty array',function(){
       assert.deepEqual(filter(isEven,[]),[]);
     });
   });
