@@ -103,5 +103,9 @@ describe('Reduce',function(){
     it('should reduce array of more than one string and with initial value',function(){
       assert.deepEqual(reduce(concat,["a","b"],"c"),"cab"); 
     });
+
+    it('should reduce array of more than one string and with initial value as an array',function(){
+      assert.deepEqual(reduce(concat,["a","b"],["c"]),["c","a","b"]); 
+    });
   });
 });
