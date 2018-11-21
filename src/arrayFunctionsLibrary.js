@@ -18,5 +18,23 @@ const map = function(functionReference,array){
   return mapResult;
 }
 
+/*..............reduce................*/
+const reduce = function(functionReference,array,initialValue){
+  let reduceResult;
+
+  if(!initialValue){
+    reduceResult = array[0];
+    array.splice(0,1); 
+  }else{
+    reduceResult = initialValue;
+  }
+
+  for(let index = 0; index < array.length; index ++){
+    reduceResult = functionReference(array[index],reduceResult);
+  }
+  return reduceResult;
+}
+
 exports.filter = filter;
 exports.map = map;
+exports.reduce = reduce;

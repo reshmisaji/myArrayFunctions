@@ -3,8 +3,8 @@
 const assert = require('assert');
 const arraysLibrary = require('../src/arraysLibrary.js');
 const arrayFunctionsLibrary = require('../src/arrayFunctionsLibrary.js');
-const {filter,map} = arrayFunctionsLibrary;
-const {isEven,hasVowels,square,addCharacter} = arraysLibrary;
+const {filter,map,reduce} = arrayFunctionsLibrary;
+const {isEven,hasVowels,square,addCharacter,sum,concat} = arraysLibrary;
 
 /*............tests for filter.............*/
 
@@ -62,6 +62,46 @@ describe('Map',function(){
 
     it('should map array with more than one string',function(){
       assert.deepEqual(map(addCharacter,["aa","b"]),["aa*","b*"]);
+    });
+  });
+});
+
+/*....................tests for reduce...............*/
+
+describe('Reduce',function(){
+  describe('Numbers',function(){
+    it('should reduce array with only one element and no initial value',function(){
+      assert.deepEqual(reduce(sum,[1]),1); 
+    });
+
+    it('should reduce array with only one element and with initial value',function(){
+      assert.deepEqual(reduce(sum,[1],0),1); 
+    });
+
+    it('should reduce array with more than one element and no initial value',function(){
+      assert.deepEqual(reduce(sum,[1,2]),3); 
+    });
+
+    it('should reduce array with more than one element and with initial value',function(){
+      assert.deepEqual(reduce(sum,[1,2],1),4); 
+    });
+  });
+
+  describe('Strings',function(){
+    it('should reduce array of only one string and without initial value',function(){
+      assert.deepEqual(reduce(concat,["a"]),"a"); 
+    });
+
+    it('should reduce array of only one string and with initial value',function(){
+      assert.deepEqual(reduce(concat,["a"],"b"),"ba"); 
+    });
+
+    it('should reduce array of more than one string and without initial value',function(){
+      assert.deepEqual(reduce(concat,["a","b"],),"ab"); 
+    });
+
+    it('should reduce array of more than one string and with initial value',function(){
+      assert.deepEqual(reduce(concat,["a","b"],"c"),"cab"); 
     });
   });
 });

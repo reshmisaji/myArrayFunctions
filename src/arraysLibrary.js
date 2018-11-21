@@ -18,7 +18,17 @@ const addCharacter = function(string){
   return string += "*";
 }
 
+const sum = function(currentValue,previousValue){
+  return currentValue + previousValue;
+}
+
+const concat = function(currentArray,previousArray){
+  return previousArray.concat(currentArray);
+}
+
 exports.isEven = isEven;
 exports.hasVowels = hasVowels;
 exports.square = square;
 exports.addCharacter = addCharacter;
+exports.sum = sum;
+exports.concat = concat;
