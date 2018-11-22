@@ -69,13 +69,13 @@ describe('Map',function(){
 
 describe('Reduce',function(){
   describe('Should not alter the array',function(){
-    it('should not alter the array elements of an empty array',function(){
+    it('when given an empty array',function(){
       let emptyArray = [];
       reduce(sum,emptyArray,0);
       assert.deepEqual(emptyArray,[]);
     });
 
-    it('should not alter the array elements of an array with some elements',function(){
+    it('when given an array with some elements',function(){
       let nonEmptyArray = [1];
       reduce(sum,nonEmptyArray,0);
       assert.deepEqual(nonEmptyArray,[1]);
