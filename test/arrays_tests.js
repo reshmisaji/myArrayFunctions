@@ -83,47 +83,31 @@ describe('Reduce',function(){
   });
 
   describe('Without Initial Value',function(){
-    describe('Empty array',function(){
-      it('should return undefined if we give an empty array without initial value',function(){
-        assert.deepEqual(reduce(sum,[]),undefined); 
-      });
+    it('should return undefined if we give an empty array',function(){
+      assert.deepEqual(reduce(sum,[]),undefined); 
     });
 
-    describe('Array with one element',function(){
-      it('should return the same element',function(){
-        assert.deepEqual(reduce(sum,[1]),1); 
-        assert.deepEqual(reduce(concat,["a"]),"a"); 
-      });
+    it('should return the same element when given an array of one element ',function(){
+      assert.deepEqual(reduce(sum,[1]),1); 
+      assert.deepEqual(reduce(concat,["a"]),"a"); 
     });
 
-    describe('Array with more than one element',function(){
-      it('should return a value considering the array elements only',function(){
-        assert.deepEqual(reduce(sum,[1,0]),1); 
-        assert.deepEqual(reduce(concat,["a","b"],),"ab"); 
-      });
+    it('should return a value when given an array with some elements',function(){
+      assert.deepEqual(reduce(sum,[1,0]),1); 
+      assert.deepEqual(reduce(concat,["a","b"],),"ab"); 
     });
   });
 
   describe('With initial value',function(){
-    describe('Empty array',function(){
-      it('should return initial value if we give an empty array with initial value',function(){
-        assert.deepEqual(reduce(sum,[],0),0);
-      });
+    it('should return initial value if we give an empty array ',function(){
+      assert.deepEqual(reduce(sum,[],0),0);
     });
 
-
-    describe('Array with only one element',function(){
-      it('should return a value of the same type of the initial value',function(){
-        assert.deepEqual(reduce(sum,[0],1),1); 
-        assert.deepEqual(reduce(concat,["a"],"b"),"ba"); 
-      });
-    });
-
-    describe('Array with more than one element',function(){
-      it('should return a value of the same type of the initial value',function(){
-        assert.deepEqual(reduce(sum,[1,1],1),3); 
-        assert.deepEqual(reduce(concat,["a","b"],"c"),"cab"); 
-      });
+    it('should return a value combining the accumulator and array elements',function(){
+      assert.deepEqual(reduce(sum,[0],1),1); 
+      assert.deepEqual(reduce(concat,["a"],"b"),"ba"); 
+      assert.deepEqual(reduce(sum,[1,1],1),3); 
+      assert.deepEqual(reduce(concat,["a","b"],"c"),"cab"); 
     });
   });
 });
