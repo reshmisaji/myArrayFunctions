@@ -60,7 +60,7 @@ describe('Map',function(){
   describe('Array with more than one element',function(){
     it('should return an array of same length as the input array',function(){
       assert.deepEqual(map(square,[1,2]),[1,4]);
-      assert.deepEqual(map(addCharacter,["aa","b","c*"]),["aa*","b*","c**"]);
+      assert.deepEqual(map(addCharacter,["aa","b","c"]),["aa*","b*","c**"]);
     });
   });
 });
