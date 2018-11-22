@@ -68,43 +68,35 @@ describe('Map',function(){
 /*....................tests for reduce...............*/
 
 describe('Reduce',function(){
-  describe('Numbers',function(){
-    it('should reduce array with only one element and no initial value',function(){
-      assert.deepEqual(reduce(sum,[1]),1); 
+  describe('Without Initial Value',function(){
+    describe('Array with one element',function(){
+      it('should return the same element',function(){
+        assert.deepEqual(reduce(sum,[1]),1); 
+        assert.deepEqual(reduce(concat,["a"]),"a"); 
+      });
     });
 
-    it('should reduce array with only one element and with initial value',function(){
-      assert.deepEqual(reduce(sum,[1],0),1); 
-    });
-
-    it('should reduce array with more than one element and no initial value',function(){
-      assert.deepEqual(reduce(sum,[1,2]),3); 
-    });
-
-    it('should reduce array with more than one element and with initial value',function(){
-      assert.deepEqual(reduce(sum,[1,2],1),4); 
+    describe('Array with more than one element',function(){
+      it('should return a value considering the array elements only',function(){
+        assert.deepEqual(reduce(sum,[1,0]),1); 
+        assert.deepEqual(reduce(concat,["a","b"],),"ab"); 
+      });
     });
   });
 
-  describe('Strings',function(){
-    it('should reduce array of only one string and without initial value',function(){
-      assert.deepEqual(reduce(concat,["a"]),"a"); 
+  describe('With initial value',function(){
+    describe('Array with only one element',function(){
+      it('should return a value of the same type of the initial value',function(){
+        assert.deepEqual(reduce(sum,[1],1),2); 
+        assert.deepEqual(reduce(concat,["a"],"b"),"ba"); 
+      });
     });
 
-    it('should reduce array of only one string and with initial value',function(){
-      assert.deepEqual(reduce(concat,["a"],"b"),"ba"); 
-    });
-
-    it('should reduce array of more than one string and without initial value',function(){
-      assert.deepEqual(reduce(concat,["a","b"],),"ab"); 
-    });
-
-    it('should reduce array of more than one string and with initial value',function(){
-      assert.deepEqual(reduce(concat,["a","b"],"c"),"cab"); 
-    });
-
-    it('should reduce array of more than one string and with initial value as an array',function(){
-      assert.deepEqual(reduce(concat,["a","b"],["c"]),["c","a","b"]); 
+    describe('Array with more than one element',function(){
+      it('should return a value of the same type of the initial value',function(){
+        assert.deepEqual(reduce(sum,[1,1],1),3); 
+        assert.deepEqual(reduce(concat,["a","b"],"c"),"cab"); 
+      });
     });
   });
 });
