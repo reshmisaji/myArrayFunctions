@@ -69,6 +69,12 @@ describe('Map',function(){
 
 describe('Reduce',function(){
   describe('Without Initial Value',function(){
+    describe('Empty array',function(){
+      it('should return undefined if we give an empty array without initial value',function(){
+        assert.deepEqual(reduce(sum,[]),undefined); 
+      });
+    });
+
     describe('Array with one element',function(){
       it('should return the same element',function(){
         assert.deepEqual(reduce(sum,[1]),1); 
@@ -85,6 +91,13 @@ describe('Reduce',function(){
   });
 
   describe('With initial value',function(){
+    describe('Empty array',function(){
+      it('should return initial value if we give an empty array with initial value',function(){
+        assert.deepEqual(reduce(sum,[],0),0); 
+      });
+    });
+
+
     describe('Array with only one element',function(){
       it('should return a value of the same type of the initial value',function(){
         assert.deepEqual(reduce(sum,[1],1),2); 
