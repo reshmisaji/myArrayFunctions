@@ -44,31 +44,23 @@ describe('Filter',function(){
 /*..........tests for map................*/
 
 describe('Map',function(){
-  describe('numbers',function(){
-    it('should map empty array with the provided function',function(){
+  describe('Empty array',function(){
+    it('should return an empty array when given an empty array',function(){
       assert.deepEqual(map(square,[]),[]);
-    });
-
-    it('should map array with only one element and the provided function',function(){
-      assert.deepEqual(map(square,[1]),[1]);
-    });
-
-    it('should map array with more than one element and the provided function',function(){
-      assert.deepEqual(map(square,[1,2]),[1,4]);
     });
   });
 
-  describe('strings',function(){
-    it('should map array with no string',function(){
-      assert.deepEqual(map(addCharacter,[]),[]); 
-    });
-
-    it('should map array with only one string',function(){
+  describe('Array with one element',function(){
+    it('should return an array of length 1(one)',function(){
+      assert.deepEqual(map(square,[1]),[1]);
       assert.deepEqual(map(addCharacter,["a"]),["a*"]); 
     });
+  });
 
-    it('should map array with more than one string',function(){
-      assert.deepEqual(map(addCharacter,["aa","b"]),["aa*","b*"]);
+  describe('Array with more than one element',function(){
+    it('should return an array of same length as the input array',function(){
+      assert.deepEqual(map(square,[1,2]),[1,4]);
+      assert.deepEqual(map(addCharacter,["aa","b","c*"]),["aa*","b*","c**"]);
     });
   });
 });
