@@ -100,7 +100,7 @@ describe('Reduce',function(){
 
     describe('Array with only one element',function(){
       it('should return a value of the same type of the initial value',function(){
-        assert.deepEqual(reduce(sum,[1],0),2); 
+        assert.deepEqual(reduce(sum,[1],1),2); 
         assert.deepEqual(reduce(concat,["a"],"b"),"ba"); 
       });
     });
