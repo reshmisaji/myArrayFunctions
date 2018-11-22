@@ -93,7 +93,7 @@ describe('Reduce',function(){
   describe('With initial value',function(){
     describe('Empty array',function(){
       it('should return initial value if we give an empty array with initial value',function(){
-        assert.deepEqual(reduce(sum,[],1),0); 
+        assert.deepEqual(reduce(sum,[],0),0); 
       });
     });
 
