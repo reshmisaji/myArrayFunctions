@@ -68,6 +68,20 @@ describe('Map',function(){
 /*....................tests for reduce...............*/
 
 describe('Reduce',function(){
+  describe('Should not alter the array',function(){
+    it('should not alter the array elements of an empty array',function(){
+      let emptyArray = [];
+      reduce(sum,emptyArray,0);
+      assert.deepEqual(emptyArray,[]);
+    });
+
+    it('should not alter the array elements of an array with some elements',function(){
+      let nonEmptyArray = [1];
+      reduce(sum,nonEmptyArray,0);
+      assert.deepEqual(nonEmptyArray,[1]);
+    });
+  });
+
   describe('Without Initial Value',function(){
     describe('Empty array',function(){
       it('should return undefined if we give an empty array without initial value',function(){
