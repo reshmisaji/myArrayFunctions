@@ -2,8 +2,8 @@
 const filter = function(predicate,array){
   let filterResult = [[],[]];
 
-  for(let index = 0;index < array.length; index ++){
-    filterResult[predicate(array[index])].push(array[index]);
+  for(let element of array){
+    filterResult[predicate(element)].push(element);
   }
   return filterResult[1];
 }
@@ -12,8 +12,8 @@ const filter = function(predicate,array){
 const map = function(mapper,array){
   let mapResult = [];
 
-  for(let index = 0; index < array.length; index++){
-    mapResult.push(mapper(array[index]));
+  for(let element of array){
+    mapResult.push(mapper(element));
   }
   return mapResult;
 }
