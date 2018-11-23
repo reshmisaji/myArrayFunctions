@@ -22,7 +22,7 @@ const map = function(mapper,array){
 const reduce = function(reducer,array,initialValue){
   let reduceResult;
 
-  if(!initialValue && initialValue != 0){
+  if(initialValue == undefined){
     if(array.length == 0){
       reduceResult = undefined;
     }else {
