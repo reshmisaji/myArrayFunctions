@@ -19,24 +19,19 @@ const map = function(mapper,array){
 }
 
 /*..............reduce................*/
-const reduce = function(reducer,array,initialValue){
-  let reduceResult;
-
-  if(initialValue == undefined){
-    if(array.length == 0){
-      reduceResult = undefined;
-    }else {
-      reduceResult = array[0];
-      array.splice(0,1); 
-    }
-  }else{
-      reduceResult = initialValue;
-    }
-
-    for(let index = 0; index < array.length; index ++){
-      reduceResult = reducer(array[index],reduceResult);
+const reduce = function(reducer,array,accumulator){
+  if(accumulator==undefined){
+    accumulator=array[0];
+    array = array.slice(1);
   }
-  return reduceResult;
+
+  if(array.length == 0){
+    return accumulator;
+  }
+
+  accumulator = reducer(array[0],accumulator);
+  accumulator=reduce(reducer,array.slice(1),accumulator);
+  return accumulator;
 }
 
 exports.filter = filter;
